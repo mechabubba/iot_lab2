@@ -1,0 +1,25 @@
+{
+  "name": "iot_lab2",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/mechabubba/iot_lab2#readme",
+  "bugs": {
+    "url": "https://github.com/mechabubba/iot_lab2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mechabubba/iot_lab2.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@trbll/nodeimu": "^1.0.2",
+    "@trbll/sense-hat-led": "^1.0.2",
+    "firebase": "^11.4.0"
+  }
+}
