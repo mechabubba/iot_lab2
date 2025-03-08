@@ -1,10 +1,13 @@
+const secrets = require("./secrets");
+
 var firebase = require( 'firebase/app' );
 var nodeimu = require( '@trbll/nodeimu' );
 var IMU = new nodeimu.IMU( );
-
-
 var sense = require( '@trbll/sense-hat-led' );
 const { getDatabase, ref, onValue, set, update, get } = require('firebase/database');
+
+const app = firebase.initializeApp(secrets);
+const database = getDatabase();
 
   // Define Firebase database structure
   const databaseStructure = ref(database, "/");

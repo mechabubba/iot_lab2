@@ -20,6 +20,7 @@
   "dependencies": {
     "@trbll/nodeimu": "^1.0.2",
     "@trbll/sense-hat-led": "^1.0.2",
-    "firebase": "^11.4.0"
+    "firebase": "^11.4.0",
+    "firebase-tools": "^13.33.0"
   }
 }
