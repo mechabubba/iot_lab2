@@ -9,9 +9,9 @@ const { getDatabase, ref, onValue, set, update, get } = require('firebase/databa
 const app = firebase.initializeApp(secrets);
 const database = getDatabase();
 
-  // Define Firebase database structure
-  const databaseStructure = ref(database, "/");
-  set(databaseStructure, {
+// Define Firebase database structure
+const databaseStructure = ref(database, "/");
+set(databaseStructure, {
       temperature: 0,
       humidity: 0,
       update_light: false,
@@ -22,9 +22,9 @@ const database = getDatabase();
           light_row: 0,
           light_col: 0
       }
-  });
+});
 
-  function updateSensorData() {
+function updateSensorData() {
     IMU.getValue((error, data) => {
         if (error) {
             console.error("Error reading IMU data:", error);
@@ -47,8 +47,11 @@ setInterval(updateSensorData, 5000);  // Run every 5 seconds
 
 onValue(ref(database, "/update_light"), (snapshot) => {
     if (snapshot.val()) {
-        onValue(ref(database, "/light_info"), (lightSnapshot) => {
+        get(ref(database, "/light_info")).then((lightSnapshot) => {
+	    if (!lightSnapshot.val()) return;
             const lightData = lightSnapshot.val();
+
+	    console.log(lightData)
 
             // Set LED color
             const color = [lightData.light_r, lightData.light_g, lightData.light_b];
